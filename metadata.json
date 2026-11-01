@@ -1,0 +1,6 @@
+{
+  "name": "WHAT DO YOU EAT? Creator Sponsorship & Food Commerce Platform",
+  "description": "Transforms creator live streams and audiences into measurable restaurant discovery, footprint routing, and food-commerce conversions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

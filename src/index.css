@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #10382E;
+    color: #FAFAFA;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: 'Bricolage Grotesque', 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.03em;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Custom scrollbars tuned for signature green palette */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B2821;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1D5E4E;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #257864;
+}
+
+@keyframes float-fade {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.1);
+  }
+  80% {
+    opacity: 0.9;
+    transform: translateY(-80px) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-120px) scale(0.9);
+  }
+}
+
+.animate-float-fade {
+  animation: float-fade 2.4s ease-out forwards;
+}
