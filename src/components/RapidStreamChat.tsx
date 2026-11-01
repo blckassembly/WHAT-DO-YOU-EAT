@@ -256,13 +256,29 @@ export const RapidStreamChat: React.FC<RapidStreamChatProps> = ({
     };
   }, [simulationSecond, activeSponsor, activeCampaign]);
 
+  // Initial burst when chat first kicks in at 25s
+  const hasBurstedRef = useRef(false);
+  useEffect(() => {
+    if (simulationSecond < 25) {
+      hasBurstedRef.current = false;
+    } else if (simulationSecond >= 25 && !hasBurstedRef.current && simulationPlaying) {
+      hasBurstedRef.current = true;
+      const initialBurst = [
+        generateContextualMessage(),
+        generateContextualMessage(),
+        generateContextualMessage(),
+      ];
+      setMessages((prev) => [...prev.slice(-90), ...initialBurst]);
+    }
+  }, [simulationSecond, simulationPlaying, generateContextualMessage]);
+
   // High-Velocity rapid-fire interval
   useEffect(() => {
     if (!simulationPlaying || simulationSecond < 25) return;
 
     // Calculate speed interval based on velocity setting & simulationSpeed
-    const baseIntervalMs = velocityRate === 'ludicrous' ? 120 : velocityRate === 'hyper' ? 240 : 480;
-    const actualInterval = Math.max(70, baseIntervalMs / simulationSpeed);
+    const baseIntervalMs = velocityRate === 'ludicrous' ? 90 : velocityRate === 'hyper' ? 170 : 360;
+    const actualInterval = Math.max(50, baseIntervalMs / simulationSpeed);
 
     // Compute display velocity
     setCalculatedMsgsPerSec(Math.round((1000 / actualInterval) * (1 + (simulationSecond > 115 ? 0.4 : 0))));

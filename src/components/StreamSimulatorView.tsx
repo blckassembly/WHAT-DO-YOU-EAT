@@ -186,6 +186,11 @@ export const StreamSimulatorView: React.FC = () => {
               Step {currentStep}/5: {SIMULATION_PHASES[currentStep - 1]?.title}
             </span>
           </div>
+
+          {/* Compact Trust Badge */}
+          <span className="inline-flex items-center px-2 py-0.5 rounded bg-emerald-950/80 border border-emerald-400/30 text-emerald-300 font-mono text-[9px] sm:text-[10px] font-bold tracking-wider uppercase whitespace-nowrap shadow-xs">
+            DEMO MODE · SIMULATED DATA · NO REAL ORDERS
+          </span>
         </div>
 
         {/* 5-Step Sequence Jump Bar */}
@@ -290,7 +295,7 @@ export const StreamSimulatorView: React.FC = () => {
             Active Creator: <strong>{activeCreator.displayName}</strong>
           </span>
           <span className="text-[#E4FF1A] font-bold tabular-nums">
-            {currentViewerCount.toLocaleString()} Viewers
+            {currentViewerCount.toLocaleString()} Simulated Viewers
           </span>
         </div>
       </div>
@@ -305,7 +310,7 @@ export const StreamSimulatorView: React.FC = () => {
           <div className="absolute top-3 left-4 z-20 flex items-center gap-2 pointer-events-none">
             <div className="bg-red-600 text-white text-[10px] font-mono font-black px-2 py-0.5 rounded flex items-center gap-1 uppercase tracking-wider shadow-md">
               <Radio className="w-3 h-3 animate-pulse" />
-              <span>LIVE</span>
+              <span>SIMULATED</span>
             </div>
             <div className="bg-black/60 backdrop-blur-md border border-white/15 text-white text-[11px] px-2.5 py-0.5 rounded font-mono tabular-nums">
               {timeFormatted}
@@ -617,10 +622,10 @@ export const StreamSimulatorView: React.FC = () => {
                       <div>
                         <div className="flex items-center gap-1.5 text-[#E4FF1A] font-bold text-[10px] uppercase">
                           <TrendingUp className="w-3.5 h-3.5" />
-                          <span>Live Commerce Kickback</span>
+                          <span>Simulated Commerce Projection</span>
                         </div>
                         <div className="text-white font-black text-sm mt-0.5">
-                          {estimatedSales} <span className="text-[10px] font-normal text-[#A3D2C4]">({estimatedOrders.toLocaleString()} meals)</span>
+                          {estimatedSales} <span className="text-[10px] font-normal text-[#A3D2C4]">({estimatedOrders.toLocaleString()} simulated orders)</span>
                         </div>
                       </div>
 
